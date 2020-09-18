@@ -10,6 +10,10 @@ class ProfileController < ApplicationController
     end
   end
 
+  def show
+
+  end
+
   def new
     @profile = Profile.new
   end
