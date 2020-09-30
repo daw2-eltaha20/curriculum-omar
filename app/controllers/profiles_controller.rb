@@ -1,17 +1,18 @@
-class ProfileController < ApplicationController
+class ProfilesController < ApplicationController
   before_action :set_profile, only: [:edit, :update, :destroy]
 
   def index
-    @profiles = Profile.all
-    @find_profile = Profile.where(user_id:current_user.id).take
+    profile = current_user.profile
 
-    if(@find_profile == nil)
-      @profile = Profile.create(inicio:"creado", nombre:"Debe contener un nombre", user_id:current_user.id, apellido: "Debe contener un apellido", calle: "Debe contener una calle", localidad: "Debe contener una localidad", codigo_postal: "Debe contener un codigo postal", telefono: "Debe contener un telefono");
+    if profile
+      redirect_to action: "show", id: profile.id
+    else
+      redirect_to action: 'new'
     end
   end
 
   def show
-
+    @profile_user = current_user.profile
   end
 
   def new
@@ -23,7 +24,10 @@ class ProfileController < ApplicationController
   end
 
   def create
-    @profile = Profile.new(profile_params)
+    
+    current_user.profile = Profile.new(profile_params) #Se hace con current_user para no tener que meter yo mismo el user_id de profile
+    @profile = current_user.profile
+    
     respond_to do |format|
       if @profile.save
       format.json { head :no_content }
@@ -40,6 +44,7 @@ class ProfileController < ApplicationController
       if @profile.update(profile_params)
       format.json { head :no_content }
       format.js
+
       else 
         format.json { render json: @profile.errors.full_messages, status: :unprocessable_entity}
         format.js { render :edit}
@@ -54,11 +59,14 @@ class ProfileController < ApplicationController
       format.js
     end
   end
+  
   private 
+  
   def set_profile
     @profile = Profile.find(params[:id])
   end
+
   def profile_params
     params.require(:profile).permit(:nombre, :apellido, :calle, :localidad, :codigo_postal, :telefono)
-  end 
+  end
 end

@@ -8,13 +8,13 @@
                         <div class ="col-md-6">
                             <div class="md-form form-sm">
                                 <label for="inputSMEx">Nombre</label>
-                                <input type="text" id="nombre" class="form-control form-control-sm" value="<%=@find_profile.nombre%>" readonly>
+                                <input type="text" id="nombre" class="form-control form-control-sm" readonly>
                             </div>
                         </div>
                         <div class ="col-md-6">
                             <div class="md-form form-sm">
                                 <label for="inputSMEx">Apellido</label>
-                                <input type="text" id="apellido" class="form-control form-control-sm" value="<%=@find_profile.apellido%>" readonly>
+                                <input type="text" id="apellido" class="form-control form-control-sm" readonly>
                             </div>
                         </div>
                     </div>
@@ -22,13 +22,13 @@
                         <div class ="col-md-6">
                             <div class="md-form form-sm mt-2">
                                 <label for="inputSMEx">Calle</label>
-                                <input type="text" id="calle" class="form-control form-control-sm" value="<%=@find_profile.calle%>" readonly>
+                                <input type="text" id="calle" class="form-control form-control-sm"  readonly>
                             </div>
                         </div>
                         <div class ="col-md-6 mt-2">
                             <div class="md-form form-sm">
                                 <label for="inputSMEx">Localidad</label>
-                                <input type="text" id="localidad" class="form-control form-control-sm" value="<%=@find_profile.localidad%>" readonly>
+                                <input type="text" id="localidad" class="form-control form-control-sm"  readonly>
                             </div>
                         </div>
                     </div>
@@ -36,20 +36,19 @@
                         <div class ="col-md-6">
                             <div class="md-form form-sm mt-2">
                                 <label for="inputSMEx">Codigo postal</label>
-                                <input type="text" id="codigo_postal" class="form-control form-control-sm" value="<%=@find_profile.codigo_postal%>" readonly>
+                                <input type="text" id="codigo_postal" class="form-control form-control-sm"  readonly>
                             </div>
                         </div>
                         <div class ="col-md-6">
                             <div class="md-form form-sm mt-2">
                                 <label for="inputSMEx">Telefono</label>
-                                <input type="text" id="telefono" class="form-control form-control-sm" value="<%=@find_profile.telefono%>" readonly>
+                                <input type="text" id="telefono" class="form-control form-control-sm"  readonly>
                             </div>
                         </div>
                     </div>
                      <div class ="row mt-3">
                         <div class ="col-md-5 offset-md-5">
                             <div class="md-form form-sm mt-2">
-                                <%=link_to "Modificar", edit_profile_path(@find_profile.id), html_options = { class: "btn btn-info btn-xs", remote: true}%>
                             </div>
                         </div>
                     </div>
@@ -58,5 +57,5 @@
         </div>
     </div>
 
-    <%= render 'modal_profile'%>
+   
   
