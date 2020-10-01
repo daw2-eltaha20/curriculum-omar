@@ -75,7 +75,9 @@
 
                 </h4>
                 <h5><%=product.price%>$</h5>
-                <button class="btn btn-success">Anadir cesta</button>
+                   <%= link_to 'Anadir carrito', add_to_cart_product_path(product), method: :put, class: 'btn btn-sucess' %>
+
+
               </div>
               <div class="card-footer">
                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>

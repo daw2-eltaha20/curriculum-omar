@@ -50,6 +50,11 @@
                     <%end%>
                   </li>
                    <li class="nav-item">
+                    <%= link_to '/cart' do%>
+                    <p class="nav-link js-scroll-trigger">Carrito</p>
+                    <%end%>
+                  </li>
+                   <li class="nav-item">
                     <%= link_to destroy_user_session_path, method: :delete, html_options: {class: "bg-info"} do%>
                     <p class="nav-link js-scroll-trigger">Logout</p>
                     <%end%>
